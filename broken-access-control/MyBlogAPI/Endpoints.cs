@@ -36,7 +36,7 @@ public static class EndpointExtensions
 
     public static void UseUserEndpoint(this WebApplication app)
     {
-        app.MapPost("/api/user", (CreateUserDto createUser) =>
+        app.MapPost("/api/users", (CreateUserDto createUser) =>
         {
             var user = Data.Users.SingleOrDefault(x => x.username == createUser.username);
             if (user != null)

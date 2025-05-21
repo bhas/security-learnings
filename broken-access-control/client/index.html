@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Insecure Blog</title>
-  <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; background: #f3f4f6; }
-    .container { max-width: 600px; margin: 50px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input, button { display: block; width: 100%; padding: 10px; margin-top: 10px; }
-    .post { border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px; }
-    .error { color: red; font-size: 0.9em; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <div id="app"></div>
+    <div id="app">
+        <h1>Simple Blog</h1>
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
 
-  <script>
-    
-  </script>
+        <div id="post-form" style="display: none">
+            <h2>Create Post</h2>
+            <input type="text" id="post-title" placeholder="Title">
+            <textarea id="post-content" placeholder="Content"></textarea>
+            <button onclick="createPost()">Create</button>
+        </div>
+
+        <div id="posts"></div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
