@@ -36,21 +36,31 @@ public static class EndpointExtensions
 
     public static void UseUserEndpoint(this WebApplication app)
     {
-        app.MapPost("/api/users", (CreateUserDto createUser) =>
-        {
-            var user = Data.Users.SingleOrDefault(x => x.username == createUser.username);
-            if (user != null)
-            {
-                 return Results.BadRequest("username is already in use");
-            }
-            if (createUser.password?.Length < 8)
-            {
-                return Results.BadRequest("Your password must be at least 8 characters long");
-            }
+        //app.MapPost("/api/users", (CreateUserDto createUser) =>
+        //{
+        //    var user = Data.Users.SingleOrDefault(x => x.username == createUser.username);
+        //    if (user != null)
+        //    {
+        //         return Results.BadRequest("username is already in use");
+        //    }
+        //    if (createUser.password?.Length < 8)
+        //    {
+        //        return Results.BadRequest("Your password must be at least 8 characters long");
+        //    }
 
-            var newUser = new User(createUser.username, createUser.password, createUser.fullName, createUser.creditCardNumber, [createUser.role]);
-            Data.Users.Add(newUser);
-            return Results.Created();
+        //    var newUser = new User(createUser.username, createUser.password, createUser.fullName, createUser.creditCardNumber, [createUser.role]);
+        //    Data.Users.Add(newUser);
+        //    return Results.Created();
+        //})
+        //.WithTags("Users")
+        //.WithOpenApi();
+
+        app.MapGet("/api/users", () =>
+        {
+            var users = Data.Users
+                .Select( user => new SimpleUserDto(user.username, user.fullName))
+                .ToList();
+            return Results.Ok(users);
         })
         .WithTags("Users")
         .WithOpenApi();
@@ -66,13 +76,16 @@ public static class EndpointExtensions
             var dto = new UserDto(user.username, user.fullName, user.creditCardNumber, user.roles);
             return Results.Ok(dto);
         })
+        .RequireAuthorization(x => x.RequireRole(
+            UserRole.Editor.ToString(),
+            UserRole.Admin.ToString()))
         .WithTags("Users")
         .WithOpenApi();
     }
 
     public static void UsePostEndpoints(this WebApplication app)
     {
-        app.MapPost("/api/posts", (CreatePostDto createPost) =>
+        app.MapPost("/api/posts", (UpsertPostDto createPost) =>
         {
             var nextId = Data.Posts.Max(x => x.id) + 1; 
             var newPost = new Post(nextId, createPost.title, createPost.content, DateTime.UtcNow, createPost.owner);
@@ -81,6 +94,25 @@ public static class EndpointExtensions
         })
         .RequireAuthorization(x => x.RequireRole(
             UserRole.Editor.ToString(), 
+            UserRole.Admin.ToString()))
+        .WithTags("Posts")
+        .WithOpenApi();
+
+        app.MapPut("/api/posts/{postId}", (int postId, UpsertPostDto updatePost) =>
+        {
+            var oldPost = Data.Posts.SingleOrDefault(x => x.id == postId);
+            if (oldPost == null)
+            {
+                return Results.NotFound();
+            }
+
+            var updatedPost = new Post(postId, updatePost.title, updatePost.content, DateTime.UtcNow, updatePost.owner);
+            Data.Posts.Remove(oldPost);
+            Data.Posts.Add(updatedPost);
+            return Results.Ok();
+        })
+        .RequireAuthorization(x => x.RequireRole(
+            UserRole.Editor.ToString(),
             UserRole.Admin.ToString()))
         .WithTags("Posts")
         .WithOpenApi();
@@ -134,7 +166,6 @@ public static class EndpointExtensions
             return post;
         })
         .RequireAuthorization(x => x.RequireRole(
-            UserRole.Reader.ToString(),
             UserRole.Editor.ToString(),
             UserRole.Admin.ToString()))
         .WithTags("Posts")
@@ -189,7 +220,7 @@ public static class EndpointExtensions
 
 record CreateUserDto(string username, string password, string fullName, string? creditCardNumber, UserRole role);
 
-record CreatePostDto(string title, string content, string owner);
+record UpsertPostDto(string title, string content, string owner);
 
 record CreateCommentDto(string text, string owner);
 
@@ -200,3 +231,5 @@ record PostDto(int id, string title, string content, DateTime date, string owner
 record CommentDto(int id, string text, DateTime date, string owner);
 
 record UserDto(string username, string fullName, string? creditCardNumber, List<UserRole> roles);
+
+record SimpleUserDto(string username, string fullName);

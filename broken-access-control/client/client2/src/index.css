@@ -1,0 +1,242 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f9fafb;
+  color: #1a202c;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.02);
+}
+nav a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+nav a:hover {
+  color: #1d4ed8;
+}
+nav span {
+  margin-left: auto;
+  font-size: 1rem;
+}
+nav button {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #374151;
+  transition: background 0.15s, border 0.15s;
+}
+nav button:hover {
+  background: #e5e7eb;
+  border-color: #a5b4fc;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.02);
+  padding: 0.75rem 0;
+}
+.nav-content {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.nav-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover {
+  background: #f3f4f6;
+  color: #1d4ed8;
+}
+
+.main-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.challenge-description-page,
+.post-overview-page,
+.admin-page,
+.login-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2, h3 {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background: #f9fafb;
+  color: #1a202c;
+  transition: border 0.15s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+button, .btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0.5rem;
+}
+button:hover, .btn:hover {
+  background: #1d4ed8;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.03);
+}
+
+.comment {
+  background: #e0e7ef;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+}
+
+.hint {
+  background: #fef9c3;
+  border: 1px solid #fde68a;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  color: #92400e;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 700px) {
+  .main-container {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
