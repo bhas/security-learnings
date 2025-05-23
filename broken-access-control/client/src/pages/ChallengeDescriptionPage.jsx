@@ -3,27 +3,23 @@ import { useState } from 'react';
 const challenges = [
   {
     title: 'Challenge 1: I spy with my little eye',
-    description: 'Rumors say that the application that someone managed to bypass the authentication and started sharing posts on Stack Overflow. These posts are only meant for internal use and should not be shared in public. Find out how this could have happened.',
+    description: 'It seems an outsider has managed to bypass the authentication and started sharing the names of all users on internet. We cannot have our users\' information shared in public. Find out how this could have happened.',
     hint: 'VmVyaWZ5IHRoYXQgYWxsIGVuZHBvaW50cyBoYXZlIHN1ZmZpY2llbnQgcGVybWlzc2lvbnMgY2hlY2tzLg=='
-    // hint: 'Verify that all endpoints have sufficient permissions checks.'
   },
   {
     title: 'Challenge 2: Comments out of control',
-    description: 'Poor emilyr has written a really mean comment on the latest announcement. She says she did not write it. Can you find out if someoen else could have done it? Or do we need to punish her?',
-    hint: 'VGhlIFVJIG1heSBub3QgYWxsb3cgaXQsIGJ1dCBtYXliZSB0aGUgQVBJIGRvZXMuIFRyeSB0byBjYWxsIHRoZSBBUEkgdXNpbmcgUG9zdG1hbi4='
-    //hint: 'The UI may not allow it, but maybe the API does. Try to call the API using Postman.'
+    description: 'Poor emilyr has written a really mean comment on the latest announcement. She says she did not write it. Can you find out if someoen else could have done it or do we need to punish her?',
+    hint: 'VGhlIFVJIG1heSBub3QgYWxsb3cgeW91IHRvIHBvc3QgdW5kZXIgYW5vdGhlciBwZXJzb25zIG5hbWUsIGJ1dCBtYXliZSB0aGUgQVBJIGRvZXMuIFRyeSBleHBlcmllbWVudCBjYWxsaW5nIHRoZSBBUEkgd2l0aCBkaWZmZXJlbnQgYXJndW1lbnRzIHVzaW5nIFBvc3RtYW4u'
   },
   {
     title: 'Challenge 3: I see, I like, I take',
     description: 'One user claims that she wrote the post "Writing with Style" but it is not in her name anymore. Can you find out how this could have happened?',
     hint: 'VGhlIEFQSSBoYXZlIGEgbG90IG9mIGVuZHBvaW50cywgc29tZSBub3QgYWNjZXNpYmxlIGZyb20gdGhlIFVJLiBUcnkgdG8gZmluZCB0aGUgb25lIHRoYXQgYWxsb3dzIHlvdSB0byBjaGFuZ2UgdGhlIG93bmVyIG9mIGEgcG9zdC4='
-    //hint: 'The API have a lot of endpoints, some not accesible from the UI. Try to find the one that allows you to change the owner of a post.'
   },
   {
     title: 'Challenge 4: An uncomfortable offer',
     description: 'The company was blackmailed today where an anonumous party claimed that they had a lot of sensitive user data. As proof they shared the sensitive details of the manager. He panicked and payd the hackers. How could the hackers have gotten access to this sensitive information?',
-    hint: 'VGhlIEFQSSBoYXZlIGEgbG90IG9mIGVuZHBvaW50cywgc29tZSBub3QgYWNjZXNpYmxlIGZyb20gdGhlIFVJLiBUcnkgdG8gZmluZCB0aGUgb25lIHRoYXQgYWxsb3dzIHlvdSB0byBjaGFuZ2UgdGhlIG93bmVyIG9mIGEgcG9zdC4='
-    //hint: 'If an endpoint is not properly validated a malicious user could be able to access sensitive information. Maybe a clever guess of the URL could help?'
+    hint: 'SWYgdGhlIGlucHV0cyBmb3IgYW4gZW5kcG9pbnQgaXMgbm90IHByb3Blcmx5IHZhbGlkYXRlZCBhIG1hbGljaW91cyB1c2VyIGNvdWxkIGJlIGFibGUgdG8gYWNjZXNzIHNlbnNpdGl2ZSBpbmZvcm1hdGlvbi4gTWF5YmUgdGhlIGhhY2tlciBjb3VsZCBoYXZlIGd1ZXNzZWQgdGhlIHRoZSBVUkwgdG8gZ2V0IHRoaXMgaW5mb3JtYXRpb24/'
   },
 ];
 
