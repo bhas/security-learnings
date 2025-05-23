@@ -1,33 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Blog</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body>
-    <div id="app">
-        <h1>Simple Blog</h1>
-        <div id="login-form">
-            <h2>Login</h2>
-            <input type="text" id="login-username" placeholder="Username">
-            <input type="password" id="login-password" placeholder="Password">
-            <button onclick="login()">Login</button>
-        </div>
-
-        <div id="post-form" style="display: none">
-            <h2>Create Post</h2>
-            <input type="text" id="post-title" placeholder="Title">
-            <textarea id="post-content" placeholder="Content"></textarea>
-            <button onclick="createPost()">Create</button>
-        </div>
-
-        <div id="posts"></div>
-    </div>
-
-    <script src="api.js"></script>
-    <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
