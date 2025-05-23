@@ -5,6 +5,7 @@ namespace MyBlogAPI;
 public static class Data
 {
     public static List<User> Users { get; set; } = [
+        new ("developer", "1234", "Internal Developer", null, new List<UserRole> { UserRole.Editor, UserRole.Reader }),
         new ("amanda.p", "password2", "Amanda Peterson", "4111 1111 1111 1111", new List<UserRole> { UserRole.Editor, UserRole.Reader }),
         new ("johnsmith", "password", "John Smith", "5555 5555 5555 4444", new List<UserRole> { UserRole.Editor, UserRole.Reader }),
         new ("bhv", "password", "Bjorn Vinther", null, new List<UserRole> { UserRole.Reader }),
